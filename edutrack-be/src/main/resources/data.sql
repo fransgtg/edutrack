@@ -76,3 +76,77 @@ Interface:
 - Semua metode secara default adalah abstrak (sebelum Java 8)
 - Dapat memiliki default methods (Java 8+)
 - Satu kelas dapat mengimplementasikan banyak interface');
+
+-- ===== SEED QUIZZES =====
+
+MERGE INTO quizzes (id, title, description, difficulty)
+KEY(id) VALUES
+(1, 'Kuis: Dasar OOP', '3 soal pilihan ganda tentang konsep OOP dasar.', 'Mudah');
+
+MERGE INTO quizzes (id, title, description, difficulty)
+KEY(id) VALUES
+(2, 'Kuis: Inheritance & Polymorphism', '3 soal pilihan ganda tentang pewarisan dan polimorfisme di Java.', 'Sedang');
+
+-- ===== SEED QUIZ QUESTIONS (Kuis 1: Dasar OOP) =====
+
+MERGE INTO quiz_questions (id, quiz_id, question_text, option_a, option_b, option_c, option_d, correct_option_index)
+KEY(id) VALUES
+(1, 1,
+ 'Manakah yang merupakan pilar utama dalam Object-Oriented Programming (OOP)?',
+ 'Inheritance, Polymorphism, Encapsulation, Abstraction',
+ 'Compilation, Interpretation, Execution',
+ 'Variables, Loops, Conditions',
+ 'HTML, CSS, JavaScript',
+ 0);
+
+MERGE INTO quiz_questions (id, quiz_id, question_text, option_a, option_b, option_c, option_d, correct_option_index)
+KEY(id) VALUES
+(2, 1,
+ 'Apakah fungsi utama dari Encapsulation (Pewadahan) dalam OOP?',
+ 'Membuat variabel global di seluruh program',
+ 'Menyembunyikan detail implementasi kelas dan membatasi akses langsung ke data',
+ 'Menghubungkan database eksternal dengan sistem lokal',
+ 'Mempercepat waktu eksekusi program Java',
+ 1);
+
+MERGE INTO quiz_questions (id, quiz_id, question_text, option_a, option_b, option_c, option_d, correct_option_index)
+KEY(id) VALUES
+(3, 1,
+ 'Pilar OOP yang memungkinkan objek baru mewarisi sifat dari objek induknya adalah...',
+ 'Polymorphism',
+ 'Abstraction',
+ 'Inheritance',
+ 'Encapsulation',
+ 2);
+
+-- ===== SEED QUIZ QUESTIONS (Kuis 2: Inheritance & Polymorphism) =====
+
+MERGE INTO quiz_questions (id, quiz_id, question_text, option_a, option_b, option_c, option_d, correct_option_index)
+KEY(id) VALUES
+(4, 2,
+ 'Kata kunci (keyword) yang digunakan di Java untuk menerapkan pewarisan kelas (inheritance) adalah...',
+ 'implements',
+ 'extends',
+ 'inherits',
+ 'super',
+ 1);
+
+MERGE INTO quiz_questions (id, quiz_id, question_text, option_a, option_b, option_c, option_d, correct_option_index)
+KEY(id) VALUES
+(5, 2,
+ 'Apa yang dimaksud dengan Polymorphism (Polimorfisme) dalam OOP?',
+ 'Kemampuan suatu objek memiliki banyak bentuk/implementasi metode yang berbeda',
+ 'Membagi kode menjadi beberapa modul terpisah',
+ 'Membuat banyak class dalam satu file',
+ 'Proses mengamankan program dari serangan hacker',
+ 0);
+
+MERGE INTO quiz_questions (id, quiz_id, question_text, option_a, option_b, option_c, option_d, correct_option_index)
+KEY(id) VALUES
+(6, 2,
+ 'Keyword ''super'' di Java digunakan untuk...',
+ 'Membuat objek baru dari kelas induk',
+ 'Mengakses konstruktor, metode, atau variabel dari parent class',
+ 'Mengakhiri eksekusi program secara paksa',
+ 'Mendeklarasikan konstanta global',
+ 1);
